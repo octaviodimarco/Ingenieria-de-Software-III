@@ -1,0 +1,8 @@
+#ignorando todo
+#**
+
+#permitiendo algunos directorios
+#!package.json
+
+#ignorando node-modules (resultado de npm install)
+node-modules/*
