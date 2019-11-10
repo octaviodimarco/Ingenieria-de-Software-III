@@ -1,0 +1,19 @@
+{
+  "name": "githubtests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "codeceptjs": "^2.3.5",
+    "webdriverio": "^5.16.5"
+  },
+  "dependencies": {
+    "@wdio/selenium-standalone-service": "^5.16.5"
+  }
+}
