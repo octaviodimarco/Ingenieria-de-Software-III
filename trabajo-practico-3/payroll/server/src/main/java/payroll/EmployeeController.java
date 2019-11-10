@@ -25,18 +25,20 @@ class EmployeeController {
 	private final EmployeeRepository repository;
 
 	private final EmployeeResourceAssembler assembler;
+	private final OrderResourceAssembler orderAssembler;
 
 	EmployeeController(EmployeeRepository repository,
-					   EmployeeResourceAssembler assembler) {
+					   EmployeeResourceAssembler assembler,
+					   OrderResourceAssembler orderAssembler) {
 		
 		this.repository = repository;
 		this.assembler = assembler;
+		this.orderAssembler = orderAssembler;
 	}
 	// end::constructor[]
 
 	// Aggregate root
 
-	// tag::get-aggregate-root[]
 	@GetMapping("/employees")
 	Resources<Resource<Employee>> all() {
 
@@ -47,9 +49,7 @@ class EmployeeController {
 		return new Resources<>(employees,
 			linkTo(methodOn(EmployeeController.class).all()).withSelfRel());
 	}
-	// end::get-aggregate-root[]
 
-	// tag::post[]
 	@PostMapping("/employees")
 	ResponseEntity<?> newEmployee(@RequestBody Employee newEmployee) throws URISyntaxException {
 
@@ -59,11 +59,9 @@ class EmployeeController {
 			.created(new URI(resource.getId().expand().getHref()))
 			.body(resource);
 	}
-	// end::post[]
 
 	// Single item
 
-	// tag::get-single-item[]
 	@GetMapping("/employees/{id}")
 	Resource<Employee> one(@PathVariable Long id) {
 
@@ -72,9 +70,7 @@ class EmployeeController {
 		
 		return assembler.toResource(employee);
 	}
-	// end::get-single-item[]
 
-	// tag::put[]
 	@PutMapping("/employees/{id}")
 	ResponseEntity<?> replaceEmployee(@RequestBody Employee newEmployee, @PathVariable Long id) throws URISyntaxException {
 
@@ -95,9 +91,7 @@ class EmployeeController {
 			.created(new URI(resource.getId().expand().getHref()))
 			.body(resource);
 	}
-	// end::put[]
 
-	// tag::delete[]
 	@DeleteMapping("/employees/{id}")
 	ResponseEntity<?> deleteEmployee(@PathVariable Long id) {
 
@@ -105,5 +99,4 @@ class EmployeeController {
 		
 		return ResponseEntity.noContent().build();
 	}
-	// end::delete[]
 }

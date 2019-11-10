@@ -9,6 +9,16 @@
             "mainClass": "payroll.PayrollApplication",
             "projectName": "evolution",
             "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-PayrollApplication<links>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "payroll.PayrollApplication",
+            "projectName": "links",
+            "args": ""
         }
     ]
 }
