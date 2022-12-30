@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "codeceptjs": "^2.3.5",
+    "codeceptjs": "^3.0.0",
     "webdriverio": "^5.16.5"
   },
   "dependencies": {
